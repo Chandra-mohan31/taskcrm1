@@ -41,6 +41,35 @@ function Sidebar() {
                 <ShoppingCartSharpIcon />
                 <h4 className="sidebar_text ">Orders</h4>
             </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <DashboardIcon />
+                <h4 className="sidebar_text">Dashboard</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <AddCircleOutlineSharpIcon />
+                <h4 className="sidebar_text">Add Client</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <TableChartSharpIcon />
+                <h4 className="sidebar_text">Tables</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <ShoppingCartSharpIcon />
+                <h4 className="sidebar_text ">Orders</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <DashboardIcon />
+                <h4 className="sidebar_text">Dashboard</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <AddCircleOutlineSharpIcon />
+                <h4 className="sidebar_text">Add Client</h4>
+            </div>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
+                <TableChartSharpIcon />
+                <h4 className="sidebar_text">Tables</h4>
+            </div>
+
     
             
         

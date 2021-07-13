@@ -1,0 +1,6 @@
+.statscontainer {
+  height: 300px;
+  width: 100%;
+  /* background-color: lightblue; */
+  background: linear-gradient(87deg, #11cdef, #1171ef) !important;
+}
