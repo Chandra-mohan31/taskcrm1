@@ -1,0 +1,28 @@
+.image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.sidebar-item:hover {
+  background-color: lightblue;
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.1);
+}
+.sidebar {
+  overflow-y: hidden;
+}
+
+.sidebar_text {
+  font-weight: normal;
+  font-size: medium;
+}
+.sidebar-item {
+  padding: 2px;
+  margin-bottom: 10px;
+  height: 40px;
+}
+.modal_sidebar {
+  height: 10px;
+  width: 10px;
+}

@@ -14,11 +14,11 @@ function Dashboard() {
         return (
             <div>
                 <h1>Dashboard</h1>
-                <button onClick={()=>{
+                {/* <button onClick={()=>{
                     signout(()=>{
                         history.push("/login")
                     })
-                }}>Signout</button>
+                }}>Signout</button> */}
             </div>
         )
     }else{

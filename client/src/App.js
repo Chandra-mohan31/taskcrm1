@@ -10,6 +10,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
@@ -23,7 +24,7 @@ function App() {
           <Signup />
         </Route>
         <Route path="/">
-           <Dashboard />
+           <Home />
         </Route>
 
       </Switch>
