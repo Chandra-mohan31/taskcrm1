@@ -1,6 +1,23 @@
 .statscontainer {
-  height: 300px;
+  height: auto;
   width: 100%;
+  padding: 60px;
   /* background-color: lightblue; */
   background: linear-gradient(87deg, #11cdef, #1171ef) !important;
+}
+
+.sidebar_modal {
+  display: fixed;
+  margin-top: 0;
+  margin-left: 0;
+}
+.modal_sidebar {
+  position: fixed;
+  width: 500px;
+
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.menubar {
+  /* background: linear-gradient(87deg, #11cdef, #1171ef) !important; */
 }

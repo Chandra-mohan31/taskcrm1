@@ -5,7 +5,7 @@ import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
 
 function StatsCard() {
     return (
-        <div class="statscard">
+        <div class="statscard mt-2">
             
                 <div class="card p-2 ">
                 <div class="card-body d-flex flex justify-content-between">
