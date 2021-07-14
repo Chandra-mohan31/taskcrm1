@@ -1,0 +1,33 @@
+.page_nav {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.page {
+  margin-top: 5px;
+}
+.bttn {
+  margin: 12px;
+  background-color: rgb(80, 80, 255);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.row_head {
+  color: gray;
+  font-size: 11px;
+  padding: 45px;
+}
+
+.row_nav {
+  background-color: rgb(235, 235, 235);
+  height: 36px;
+}
+
+.row1 {
+  font-weight: 500;
+}

@@ -2,3 +2,8 @@
   width: 650px;
   /* margin: 20px; */
 }
+
+.cardview {
+  border-radius: 10px;
+  /* box-shadow: 5px 5px rgb(50, 194, 50); */
+}

@@ -21,3 +21,57 @@
 .menubar {
   /* background: linear-gradient(87deg, #11cdef, #1171ef) !important; */
 }
+.topbar {
+  background: linear-gradient(87deg, #11cdef, #1171ef) !important;
+  color: white;
+}
+.inputcontainer {
+  border-radius: 20px;
+  border: 1px solid white;
+  color: white;
+  margin-right: 10px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  /* background: rgb(47, 180, 224); */
+  background: transparent;
+  width: 50%;
+  height: 50px;
+}
+.inputholder {
+  background: transparent;
+  border: none;
+
+  color: white;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+.sm_inputcontainer {
+  border-radius: 20px;
+  border: 1px solid gray;
+  color: black;
+  margin-right: 10px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  /* background: rgb(47, 180, 224); */
+  background: transparent;
+  width: 50%;
+  height: 50px;
+}
+.sminput {
+  background: transparent;
+  width: 300px;
+  border: none;
+
+  color: black;
+}
+.avatar :hover {
+  cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.main_st {
+  background-color: rgb(245, 245, 244);
+  width: 100%;
+  border-radius: 6px;
+}
+
+.st_nav {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.social {
+  margin-top: 13px;
+  font-size: 24px;
+}
+
+.prog {
+  width: 140px;
+}
+
+.bttn_st {
+  margin: 15px;
+  background-color: rgb(80, 80, 255);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}

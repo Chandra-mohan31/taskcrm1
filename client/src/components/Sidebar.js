@@ -21,54 +21,27 @@ import "./Sidebar.css";
 function Sidebar() {
     return (
         <div className="sidebar">
-            <div className="d-flex flex-row align-items-center justify-content-between ">
+            <div className="d-flex flex-row align-items-center justify-content-start ">
             <img src={logo} className="img-fluid image p-2" alt="" />
           <h1 className="text-primary p-2">Argon</h1>
             </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <DashboardIcon />
-                <h4 className="sidebar_text">Dashboard</h4>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-start p-2">
+                <DashboardIcon className="mb-2" style={{color:"blue"}} />
+                <h4 className="sidebar_text p-2">Dashboard</h4>
             </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <AddCircleOutlineSharpIcon />
-                <h4 className="sidebar_text">Add Client</h4>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-start p-2">
+                <AddCircleOutlineSharpIcon  className="mb-2" style={{color:"red"}} />
+                <h4 className="sidebar_text p-2">Add Client</h4>
             </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <TableChartSharpIcon />
-                <h4 className="sidebar_text">Tables</h4>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-start p-2">
+                <TableChartSharpIcon  className="mb-2" style={{color:"lightgreen"}} />
+                <h4 className="sidebar_text p-2">Tables</h4>
             </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <ShoppingCartSharpIcon />
-                <h4 className="sidebar_text ">Orders</h4>
+            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-start p-2">
+                <ShoppingCartSharpIcon  className="mb-2" style={{color:"orange"}} />
+                <h4 className="sidebar_text p-2">Orders</h4>
             </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <DashboardIcon />
-                <h4 className="sidebar_text">Dashboard</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <AddCircleOutlineSharpIcon />
-                <h4 className="sidebar_text">Add Client</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <TableChartSharpIcon />
-                <h4 className="sidebar_text">Tables</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <ShoppingCartSharpIcon />
-                <h4 className="sidebar_text ">Orders</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <DashboardIcon />
-                <h4 className="sidebar_text">Dashboard</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <AddCircleOutlineSharpIcon />
-                <h4 className="sidebar_text">Add Client</h4>
-            </div>
-            <div className="mx-2 sidebar-item d-flex flex-row align-items-center justify-content-between p-2">
-                <TableChartSharpIcon />
-                <h4 className="sidebar_text">Tables</h4>
-            </div>
+         
 
     
             
