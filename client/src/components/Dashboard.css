@@ -3,10 +3,19 @@
   width: 100%;
   padding: 60px;
   /* background-color: lightblue; */
-  background: linear-gradient(87deg, #11cdef, #1171ef) !important;
+  transition: ease-in-out;
+  background: linear-gradient(180deg, #1171ef, #11cdef) !important;
 }
 
+.textdash:hover {
+  transform: scale(1.1);
+}
 .sidebar_modal {
+  display: fixed;
+  margin-top: 0;
+  margin-left: 0;
+}
+.modaldropdown {
   display: fixed;
   margin-top: 0;
   margin-left: 0;
@@ -18,30 +27,39 @@
   margin-left: 10px;
   margin-top: 10px;
 }
+.modaldropdown_cont {
+  position: fixed;
+  width: 500px;
+
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .menubar {
   /* background: linear-gradient(87deg, #11cdef, #1171ef) !important; */
 }
 .topbar {
-  background: linear-gradient(87deg, #11cdef, #1171ef) !important;
+  background-color: #1171ef;
+  border-bottom: 1px solid rgb(124, 183, 202);
+  /* background-image: linear-gradient(180deg, #11cdef, #1171ef) !important; */
   color: white;
 }
 .inputcontainer {
   border-radius: 20px;
-  border: 1px solid white;
-  color: white;
+  /* border: 1px solid white; */
+  color: black;
   margin-right: 10px;
   /* margin-left: 20px;
   margin-right: 20px; */
   /* background: rgb(47, 180, 224); */
-  background: transparent;
-  width: 50%;
-  height: 50px;
+  background: white;
+  width: 300px;
+  height: 40px;
 }
 .inputholder {
-  background: transparent;
+  /* background: transparent; */
   border: none;
 
-  color: white;
+  color: black;
 }
 input:focus,
 textarea:focus,
@@ -50,7 +68,7 @@ select:focus {
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+  color: black;
   opacity: 1; /* Firefox */
 }
 .sm_inputcontainer {
@@ -61,11 +79,12 @@ select:focus {
   /* margin-left: 20px;
   margin-right: 20px; */
   /* background: rgb(47, 180, 224); */
-  background: transparent;
-  width: 50%;
-  height: 50px;
+  background: white;
+  width: 300px;
+  height: 40px;
 }
 .sminput {
+  margin-left: 3px;
   background: transparent;
   width: 300px;
   border: none;
@@ -74,4 +93,34 @@ select:focus {
 }
 .avatar :hover {
   cursor: pointer;
+}
+
+.dropdown_cont {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background: rgb(235, 234, 234);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.signout_div:hover {
+  cursor: pointer;
+  /* background-color: lightgreen; */
+  transform: scale(0.9);
+  border: 1px solid red;
+  border-radius: 10px;
+}
+
+.closedropdown {
+  margin-left: 150px;
+  margin-top: 0px;
+}
+.closedropdown:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

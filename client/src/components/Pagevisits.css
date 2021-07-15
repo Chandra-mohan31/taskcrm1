@@ -1,19 +1,33 @@
+.page_main {
+  border-radius: 10px;
+  /* border: 2px solid rgb(226, 226, 226); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
 .page_nav {
   display: flex;
   justify-content: space-between;
   height: 50px;
+  margin-bottom: 13px;
 }
 
 .page {
-  margin-top: 5px;
+  margin-top: 18px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: rgb(78, 78, 78);
 }
 .bttn {
-  margin: 12px;
+  margin-top: 15px;
+  margin-right: 18px;
   background-color: rgb(80, 80, 255);
   border: none;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  height: 30px;
   color: white;
   font-size: 14px;
+  width: 60px;
   font-weight: 600;
 }
 
@@ -29,5 +43,10 @@
 }
 
 .row1 {
-  font-weight: 500;
+  font-weight: 400;
+  height: 35px;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: lightgray;
 }

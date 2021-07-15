@@ -5,7 +5,7 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 function Pagevisits() {
     return (
-        <div style={{backgroundColor:"whitesmoke"}}>
+        <div className="page_main" style={{backgroundColor:"white"}}>
           <div className="page_nav">
             <h3 className="page">Page</h3>
             <button type="button" className="bttn">See all</button>
@@ -57,3 +57,4 @@ function Pagevisits() {
 }
 
 export default Pagevisits
+

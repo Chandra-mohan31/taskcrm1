@@ -4,6 +4,13 @@
 }
 
 .cardview {
+  border: none;
   border-radius: 10px;
-  /* box-shadow: 5px 5px rgb(50, 194, 50); */
+  /* box-shadow: 4px 4px whitesmoke; */
+}
+
+.cardview:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+  /* transition: ease-in-out; */
 }

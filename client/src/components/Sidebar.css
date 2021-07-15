@@ -4,13 +4,17 @@
   object-fit: contain;
 }
 .sidebar-item:hover {
-  background-color: lightblue;
+  background-color: rgb(175, 241, 175);
+  transform: scale(0.9);
   cursor: pointer;
   opacity: 1;
+  border-radius: 10px;
   /* transform: scale(1.1); */
 }
 .sidebar {
   overflow-y: hidden;
+  overflow-x: none;
+  width: 240px;
   /* border-right: 0.5px solid gray; */
 }
 
