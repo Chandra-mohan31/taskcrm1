@@ -1,66 +1,145 @@
-import React,{useState} from 'react';
-import { Redirect,useHistory } from 'react-router-dom';
-import { isAuthenticated, signout } from '../helper';
-// import StatsCardContainer from './StatsCardContainer';
-import "./Dashboard.css";
-import StatsCard from "./StatsCard";
-import Sidebar from './Sidebar';
-import MenuIcon from '@material-ui/icons/Menu';
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button';
-import { Avatar } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import PollOutlinedIcon from '@material-ui/icons/PollOutlined';
-import PieChartRoundedIcon from '@material-ui/icons/PieChartRounded';
-import GroupAddRoundedIcon from '@material-ui/icons/GroupAddRounded';
-import ArrowDownwardRoundedIcon from '@material-ui/icons/ArrowDownwardRounded';
-import CategoryRoundedIcon from '@material-ui/icons/CategoryRounded';
-import PageMain from './PageMain';
-import Pagevisits from './Pagevisits';
-import logo from "../img/logo.png";
-import OrdersGraph from './OrdersGraph';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import CloseIcon from '@material-ui/icons/Close';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import React,{useState} from 'react'
+import "./AddCustomers.css";
+import Sidebar from "./Sidebar";
 import Topbar from './Topbar';
+import AddIcon from '@material-ui/icons/Add';
+import SettingsIcon from '@material-ui/icons/Settings';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link, useHistory } from 'react-router-dom';
+import CloseIcon from '@material-ui/icons/Close';
+import "./AddCustomers.css";
+import logo from "../img/logo.png";
+import { Avatar } from '@material-ui/core';
+import { isAuthenticated, signout } from '../helper';
+import "./Addcustomer.css";
+import SearchIcon from '@material-ui/icons/Search';
 
 
+const NewForm = () => {
+  return(
+  <div >
+            <div className="form1">
+            <div class="mb-3 row">
+              
+               <div class="d-flex align-items-center">
+               <label style={{marginRight:"15px"}}>Customer Type</label>
+                  <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                      <label class="form-check-label" for="inlineRadio1">Business</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                      <label class="form-check-label" for="inlineRadio2">Individual</label>
+                  </div>
+                  </div>
+              </div>
+            </div>
 
-function Dashboard() {
-    const history = useHistory();
+          
 
-    const redirectToLogin = () => {
-        history.push("/login");
-    }
-   
+          <div class="row mb-3 d-flex align-items-center">
+            <div className="col">
+              <label>Primary Contact</label>
+            </div>
+            <div class="col">
+            <select class="form-select" aria-label="Default select example">
+                    <option selected>Salutation</option>
+                    <option value="1">Mr.</option>
+                    <option value="2">Ms.</option>
+                    <option value="3">Mrs.</option>
+                  </select>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name" aria-label="First name" />
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" />
+            </div>
+          </div>
+            
 
-    const authdata = isAuthenticated();
-    
-    
+            <div class="mb-3 row d-flex align-items-center">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Company Name</label>
+               <div class="col">
+                  <input type="text" class="form-control" placeholder="company name"  aria-label="email" aria-describedby="basic-addon1" />
+              </div>
+            </div>
 
-    
-    const token = authdata.access_token;
-    console.log(token);
-    let user = authdata.email;
-    console.log(user);
-    const [open,setOpen] = useState(false);
+
+            <div class="mb-3 d-flex align-items-center">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Customer Display Name</label>
+               <div class="col-sm-10">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+              </div>
+            </div>
+
+            <div class="mb-3 d-flex align-items-center ">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Customer Email</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="enter valid email" aria-label="Username" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+
+            <div class="mb-3 d-flex align-items-center ">
+              <label for="phone" class="col-sm-2 col-form-label">Customer Phone</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" aria-label="phone" placeholder="phone number" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+
+            <div class="mb-3 d-flex align-items-center ">
+              <label for="phone" class="col-sm-2 col-form-label">Website</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" aria-label="phone" placeholder="website url" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+
+
+            <div className="mb-3 d-flex align-items-center">
+            <button className="btn btn-success text-white">Save</button> 
+            <button className="btn btn-danger text-white mx-3">Cancel</button> 
+            </div>
+          
+
+            
+        </div>
+  </div>)
+}
+
+
+function AddCustomer() {
+    const [showbar,setShowbar] = useState(false);
     const [text,setText] = useState("");
     const toggleSidebar = () => {
-        setOpen(!open);
-        
+        setShowbar(!showbar);
     }
-    if(user){
-        return (
-            <div className="dashboard w-100">
-   
-                       <div className="d-flex flex-row align-items-center justify-content-between d-md-none p-2 menubar">
-                      
-                       <div className="d-flex flex-row align-items-center">
-                       <span className="navbar-toggler-icon" onClick={toggleSidebar}><MenuIcon /></span>
-            <img src={logo} className="img-fluid image p-2" alt="" />
-          {/* <h1 className="text-primary p-2">Argon</h1> */}
+    const history = useHistory();
+    const token = isAuthenticated().access_token;
+    return (
+        <div className="addcustomers d-flex flex-row">
+           
+            <div className="d-none d-md-block">
+                <Sidebar />
             </div>
-                       <div className="d-flex flex-row align-items-center justify-content-end ">
+            <div className="flex-grow-1">
+            {
+            showbar ? (
+                <div className="d-flex d-md-none flex-column p-2"><CloseIcon className="closebar" onClick={toggleSidebar} /><Sidebar /></div>
+            ):(
+               <div  className="d-block d-md-none">
+               <div className="d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                    <span className="navbar-toggler-icon" onClick={toggleSidebar}><MenuIcon /></span>
+            <img src={logo} className="img-fluid image p-2" alt="" />
+                    </div>
+   
+          <div className="d-flex flex-row align-items-center justify-content-end ">
                        <div className="sm_inputcontainer d-flex flex-row align-items-center justify-content-start">
                        <SearchIcon style={{marginLeft:"8px"}} />
                        <input type="text" placeholder="search" className="sminput" value={text}  onChange={e => setText(e.target.value)} />
@@ -73,67 +152,21 @@ function Dashboard() {
                     },token)
                 }} />
                        </div>
+            </div>
                        
-
-                       </div>
-                       
-                       <Topbar />
-            <div className="statscontainer d-block d-md-flex flex-row justify-content-evenly align-items-center flex-wrap">
-
-            {/* TRAFFIC,350,897,red,import PollOutlinedIcon from '@material-ui/icons/PollOutlined'; */}
-            <StatsCard Icon={PollOutlinedIcon} bgcolor="red" title="TRAFFIC" val="350,897"  />
-            <StatsCard Icon={GroupAddRoundedIcon} bgcolor="orange" title="NEW USERS" val="2,356"  />
-
-            <StatsCard Icon={PieChartRoundedIcon} bgcolor="violet" title="SALES" val="924"  />
-            <StatsCard Icon={CategoryRoundedIcon} bgcolor="blue" title="PERFORMANCE" val="49.65%"  />
-
-   
-
-            {/* <div className="dashboard_graph" style={{position:"absolute",bottom:"10px"}}>
-                <OrdersGraph />
-                <OrdersGraph />
-
-            </div> */}
-
-            </div>
-           
-            <div style={{padding:"20px"}} className="tables_container">
-                <PageMain />
-            </div>
-            
-            <div className="modal_sidebar">
-
-<Modal className="modal d-md-none modalsidebar" show={open} backdrop="static" aria-labelledby="contained-modal-title-vcenter"  centered onHide={toggleSidebar}>
-    <Modal.Header variant="primary">
-
-    <Modal.Title> Sidebar  </Modal.Title>
-    <CloseIcon onClick={toggleSidebar} />
-    </Modal.Header>
-    <Modal.Body>
-    <Sidebar />
-    </Modal.Body>
-    <Modal.Footer>
-    
-    </Modal.Footer>
-
-    
-</Modal>
-</div>
-
+               </div>
                 
-                
+            )
+        }
+                <Topbar />
+                <div className="main_container">
+                   
+                {/* <AddCustForm /> */}
+                <NewForm />
+                </div>
             </div>
-        )
-    }else{
-        return(
-            <div>
-                <h1>Redirecting to login...</h1>
-                {
-                    redirectToLogin()
-                }
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
-export default Dashboard
+export default AddCustomer

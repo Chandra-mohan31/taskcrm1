@@ -1,66 +1,45 @@
-import React,{useState} from 'react';
-import { Redirect,useHistory } from 'react-router-dom';
-import { isAuthenticated, signout } from '../helper';
-// import StatsCardContainer from './StatsCardContainer';
-import "./Dashboard.css";
-import StatsCard from "./StatsCard";
-import Sidebar from './Sidebar';
-import MenuIcon from '@material-ui/icons/Menu';
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button';
-import { Avatar } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import PollOutlinedIcon from '@material-ui/icons/PollOutlined';
-import PieChartRoundedIcon from '@material-ui/icons/PieChartRounded';
-import GroupAddRoundedIcon from '@material-ui/icons/GroupAddRounded';
-import ArrowDownwardRoundedIcon from '@material-ui/icons/ArrowDownwardRounded';
-import CategoryRoundedIcon from '@material-ui/icons/CategoryRounded';
-import PageMain from './PageMain';
-import Pagevisits from './Pagevisits';
-import logo from "../img/logo.png";
-import OrdersGraph from './OrdersGraph';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import CloseIcon from '@material-ui/icons/Close';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import React,{useState} from 'react'
+import "./AddCustomers.css";
+import Sidebar from "./Sidebar";
 import Topbar from './Topbar';
+import AddIcon from '@material-ui/icons/Add';
+import SettingsIcon from '@material-ui/icons/Settings';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link, useHistory } from 'react-router-dom';
+import CloseIcon from '@material-ui/icons/Close';
+import "./AddCustomers.css";
+import logo from "../img/logo.png";
+import { Avatar } from '@material-ui/core';
+import { isAuthenticated, signout } from '../helper';
+import SearchIcon from '@material-ui/icons/Search';
 
 
 
-function Dashboard() {
-    const history = useHistory();
-
-    const redirectToLogin = () => {
-        history.push("/login");
-    }
-   
-
-    const authdata = isAuthenticated();
-    
-    
-
-    
-    const token = authdata.access_token;
-    console.log(token);
-    let user = authdata.email;
-    console.log(user);
-    const [open,setOpen] = useState(false);
+function AddCustomer() {
+    const [showbar,setShowbar] = useState(false);
     const [text,setText] = useState("");
     const toggleSidebar = () => {
-        setOpen(!open);
-        
+        setShowbar(!showbar);
     }
-    if(user){
-        return (
-            <div className="dashboard w-100">
-   
-                       <div className="d-flex flex-row align-items-center justify-content-between d-md-none p-2 menubar">
-                      
-                       <div className="d-flex flex-row align-items-center">
+    const history = useHistory();
+    const token = isAuthenticated().access_token;
+    return (
+        <div className="addcustomers d-flex flex-row">
+           
+            <div className="d-none d-md-block">
+                <Sidebar />
+            </div>
+            <div className="flex-grow-1">
+            {
+            showbar ? (
+                <div className="d-flex d-md-none flex-column p-2"><CloseIcon className="closebar" onClick={toggleSidebar} /><Sidebar /></div>
+            ):(
+               <div  className="d-block d-md-none">
+               <div className="d-flex flex-row align-items-center">
                        <span className="navbar-toggler-icon" onClick={toggleSidebar}><MenuIcon /></span>
             <img src={logo} className="img-fluid image p-2" alt="" />
-          {/* <h1 className="text-primary p-2">Argon</h1> */}
-            </div>
-                       <div className="d-flex flex-row align-items-center justify-content-end ">
+   
+          <div className="d-flex flex-row align-items-center justify-content-end ">
                        <div className="sm_inputcontainer d-flex flex-row align-items-center justify-content-start">
                        <SearchIcon style={{marginLeft:"8px"}} />
                        <input type="text" placeholder="search" className="sminput" value={text}  onChange={e => setText(e.target.value)} />
@@ -73,67 +52,114 @@ function Dashboard() {
                     },token)
                 }} />
                        </div>
+            </div>
                        
-
-                       </div>
-                       
-                       <Topbar />
-            <div className="statscontainer d-block d-md-flex flex-row justify-content-evenly align-items-center flex-wrap">
-
-            {/* TRAFFIC,350,897,red,import PollOutlinedIcon from '@material-ui/icons/PollOutlined'; */}
-            <StatsCard Icon={PollOutlinedIcon} bgcolor="red" title="TRAFFIC" val="350,897"  />
-            <StatsCard Icon={GroupAddRoundedIcon} bgcolor="orange" title="NEW USERS" val="2,356"  />
-
-            <StatsCard Icon={PieChartRoundedIcon} bgcolor="violet" title="SALES" val="924"  />
-            <StatsCard Icon={CategoryRoundedIcon} bgcolor="blue" title="PERFORMANCE" val="49.65%"  />
-
-   
-
-            {/* <div className="dashboard_graph" style={{position:"absolute",bottom:"10px"}}>
-                <OrdersGraph />
-                <OrdersGraph />
-
-            </div> */}
-
-            </div>
-           
-            <div style={{padding:"20px"}} className="tables_container">
-                <PageMain />
-            </div>
-            
-            <div className="modal_sidebar">
-
-<Modal className="modal d-md-none modalsidebar" show={open} backdrop="static" aria-labelledby="contained-modal-title-vcenter"  centered onHide={toggleSidebar}>
-    <Modal.Header variant="primary">
-
-    <Modal.Title> Sidebar  </Modal.Title>
-    <CloseIcon onClick={toggleSidebar} />
-    </Modal.Header>
-    <Modal.Body>
-    <Sidebar />
-    </Modal.Body>
-    <Modal.Footer>
-    
-    </Modal.Footer>
-
-    
-</Modal>
-</div>
-
+               </div>
                 
+            )
+        }
+                <Topbar />
+                <div>
+                   
                 
+                </div>
             </div>
-        )
-    }else{
-        return(
-            <div>
-                <h1>Redirecting to login...</h1>
-                {
-                    redirectToLogin()
-                }
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
-export default Dashboard
+export default AddCustomer
+bin
+const AddCustForm = () => {
+    return(
+        <div>
+            <form class="needs-validation" novalidate>
+  <div class="form-row">
+<div className="d-flex align-items-center">
+<div className="mb-3"><label>Customer Type</label></div>
+<div class="form-check col-mb-4 mb-3 mx-3">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">
+    Buisness
+  </label>
+  
+</div>
+  <div class="form-check col-mb-4 mb-3 mx-3">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">
+    Individual
+  </label>
+  
+</div>
+</div>
+    <div className="d-block d-sm-flex align-items-center justify-content-between">
+       <label className="mb-3">Primary Contact</label>
+      <div className="mb-3">
+      <select class="form-select" aria-label="Default select example">
+                    <option selected>Salutation</option>
+                    <option value="1">Mr</option>
+                    <option value="2">Ms</option>
+                    <option value="3">Mrs</option>
+                  </select>
+      </div>
+    <div class="col-md-4 mb-3">
+      
+      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="" required />
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+    
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="" required />
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4 mb-3 d-flex align-items-center">
+      <label for="validationCustomUsername">Email</label>
+      <div class="input-group mx-3">
+        <div class="input-group-prepend">
+          
+        </div>
+        <input type="text" class="form-control" id="" placeholder="email Id" aria-describedby="inputGroupPrepend" required />
+        <div class="invalid-feedback">
+          Please choose a email.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3 d-flex align-items-center">
+      <label for="validationCustom03">Company Name</label>
+      <input type="text" class="form-control mx-3" id="" placeholder="Company name" required />
+      <div class="invalid-feedback">
+        Please provide a valid Company Name.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 d-flex flex-row align-items-center">
+      <label for="validationCustom04">Customer Display Name</label>
+      <input type="text" class="form-control mx-" id="validationCustom04" placeholder="customer display name" required />
+      <div class="invalid-feedback">
+        Please provide a valid display name.
+      </div>
+    </div>
+    
+  </div>
+  <div class="form-group mt-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3" type="submit">Submit form</button>
+</form>
+        </div>
+    )
+}

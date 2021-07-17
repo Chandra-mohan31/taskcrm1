@@ -1,0 +1,15 @@
+.navbar-toggler-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.closebar:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .customers_tablecontainer {
+    width: 500px;
+    overflow-x: scroll;
+  }
+}

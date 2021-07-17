@@ -99,7 +99,8 @@ select:focus {
   position: fixed;
   top: 60px;
   right: 10px;
-  background: rgb(235, 234, 234);
+  background: rgb(241, 239, 239);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   color: black;
   display: flex;
   flex-direction: column;
@@ -123,4 +124,14 @@ select:focus {
 .closedropdown:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+.tables_container {
+  /* background: linear-gradient(180deg, #11cdef, white); */
+
+  background: repeating-linear-gradient(
+    #11cdef,
+    #dfe4ff 29.9%,
+    #ffffff 50.1%,
+    #ffffff 100%
+  );
 }

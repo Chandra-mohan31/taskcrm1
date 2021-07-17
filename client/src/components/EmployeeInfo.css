@@ -1,0 +1,40 @@
+.emp_form {
+  margin-top: 15px;
+}
+
+.emp {
+  width: 60%;
+  margin-left: 30px;
+  /* margin-top: 15px; */
+}
+
+.btn1 {
+  margin-top: 10px;
+  /* margin-left: 10px; */
+}
+
+.inputWid {
+  width: 50%;
+}
+
+@media (max-width: 576px) {
+  .inputWid {
+    width: 100%;
+  }
+
+  .emp {
+    width: 80%;
+  }
+
+  .emp_form {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .btn1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}

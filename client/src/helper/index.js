@@ -1,7 +1,7 @@
 import {API} from "../backend";
 
 export const signup = (user) => {
-    return  fetch(`${API}api/signup`,{
+    return  fetch(`${API}register`,{
         method:"POST",
         headers:{
             Accept:"application/json",
@@ -17,7 +17,7 @@ export const signup = (user) => {
 }
 
 export const signin = (user) => {
-    return  fetch(`${API}api/signin`,{
+    return  fetch(`${API}login`,{
         method:"POST",
         headers:{
             Accept:"application/json",
@@ -35,16 +35,22 @@ export const signin = (user) => {
 export const authenticate = (data,next) =>{
     if(typeof window !== "undefined"){
         localStorage.setItem("jwt",JSON.stringify(data))
+        // console.log(data.access_token);
         next();
     }
 }
 
-export const signout = (next) => {
+export const signout = (next,token) => {
     if(typeof window !== "undefined"){
         localStorage.removeItem("jwt")
         next();
-        return fetch(`${API}api/signout`,{
-            method:"GET"
+        return fetch(`${API}logout`,{
+            method:"POST",
+            headers:{
+                Accept:"application/json",
+                "Content-Type":"application/json",
+                Authorization:`Bearer ${token}`
+            }
             
         })
         .then(response=>{
@@ -52,6 +58,15 @@ export const signout = (next) => {
             //return response.json();
         })
         .catch(err=>console.log(err))
+        // return fetch(`${API}signout`,{
+        //     method:"GET"
+            
+        // })
+        // .then(response=>{
+        //     console.log("signout success");
+        //     //return response.json();
+        // })
+        // .catch(err=>console.log(err))
     }
 }
 
@@ -70,3 +85,20 @@ export const isAuthenticated = () => {
   };
 
 
+  export const getEmployeeData = (token) => {
+    return  fetch(`${API}crm/getEmployeeData`,{
+        method:"GET",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json",
+            Authorization:`Bearer ${token}`
+        }
+
+    })
+    .then(response => {
+        
+        return response.json();
+        
+    })
+    .catch(err => console.log(err))
+}

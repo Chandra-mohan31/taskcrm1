@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 
 function Signup() {
     const [values,setValues] = useState({
-        name:"",
+        // name:"",
         email:"",
+        phonenumber:"",
         password:"",
         error:"",
         success: false
     });
-    const {name,email,password,error,success} = values;
+    const {phonenumber,email,password,error,success} = values;
 
     const handleChange = name => event =>{
         setValues({
@@ -27,9 +28,10 @@ function Signup() {
             ...values,error:false
         });
         signup({
-            name,
+            phonenumber,
             email,
-            password
+            password,
+            status:"2"
 
         })
          .then(data => {
@@ -38,9 +40,10 @@ function Signup() {
                      ...values,error: data.error,success:false
                  })
              }else{
+                 console.log(data);
                  setValues({
                      ...values,
-                     name:"",
+                     phonenumber:"",
                      email:"",
                      password:"",
                      error:"",
@@ -93,8 +96,8 @@ function Signup() {
             <form onSubmit={onSubmit} className="form-control form-control-sm w-50 mx-auto"> 
             <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Sign-up</h3>
             <div class="mb-3 mx-auto w-75">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input class="form-control" placeholder="username" id="exampleInputEmail1" value={name} onChange={handleChange("name")} aria-describedby="emailHelp" required />
+                    <label for="exampleInputEmail1" class="form-label">Phonenumber</label>
+                    <input class="form-control" placeholder="phonenumber" id="exampleInputEmail1" value={phonenumber} onChange={handleChange("phonenumber")} aria-describedby="emailHelp" required />
                 </div>  
                 <div class="mb-3 mx-auto w-75">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -121,9 +124,9 @@ function Signup() {
                 
                    {
                         match?(
-                            <button type="submit" class="btn button" >Submit</button>
+                            <button type="submit" class="btn button_signup" >Submit</button>
                         ):(
-                            <button disabled type="submit" class="btn button"  >Submit</button>
+                            <button disabled type="submit" class="btn button_signup"  >Submit</button>
                         )
                     }
                     {successMessage()}

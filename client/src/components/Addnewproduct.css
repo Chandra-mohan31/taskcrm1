@@ -1,0 +1,29 @@
+.sales_main {
+  display: flex;
+}
+
+.sales {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  width: 40%;
+}
+
+.form1 {
+  width: 60%;
+  margin-top: 15px;
+  /* border: 1px solid black; */
+  padding-left: 20px;
+}
+
+.seg1 {
+  border-bottom: 2px solid rgb(180, 180, 180);
+}
+
+.formTop {
+  margin-bottom: 20px;
+}
+
+.btnn {
+  margin-top: 24px;
+}

@@ -16,7 +16,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 function Login() {
     const [values,setValues] = useState({
-        email:"",
+        phonenumber:"",
         password:"",
         error:"",
         loading:false,
@@ -24,10 +24,17 @@ function Login() {
         
     });
 
-    const {email,password,error,loading,didRedirect} = values;
+    const {phonenumber,password,error,loading,didRedirect} = values;
 
-    const {user} = isAuthenticated();
+    // const {user} = isAuthenticated();
 
+    const authdata = isAuthenticated();
+    
+
+    
+
+    let user = authdata.email;
+    console.log(user);
 
     const handleChange = name => event =>{
         setValues({
@@ -40,10 +47,14 @@ function Login() {
         setValues({
             ...values,error:false,loading: true
         });
+        console.log(values);
+
         signin({
-            email,
+            phonenumber,
             password
         })
+       
+        // .then(res => console.log(res))
         .then(data => {
             if(data.error){
                 setValues({
@@ -61,7 +72,7 @@ function Login() {
             }
         })
         .catch((err)=> console.log("error in signin"))
-
+        console.log(user);
         
     }
 
@@ -81,9 +92,9 @@ function Login() {
       <img src={logo} alt="image" width="40" height="40" class="d-inline-block logo1" />
       <span className="argon">argon</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    {/* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon d-none"></span>
+    </button> */}
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ulItem">
         <li className="nav-item">
@@ -117,13 +128,13 @@ function Login() {
                 <p className="text-center head2">Login in your account</p>
             </div>
 
-                <div className="signup cardGlass">
+                <div className="signup cardGlass w-sm-100">
                 <form className="form-control form-control-sm mx-auto signupForm"> 
                 <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Login</h3>
                     <div class="mb-3 mx-auto w-75">
 
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="&#9993; example@gmail.com" id="exampleInputEmail1" value={email} onChange={handleChange("email")} aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" class="form-label">PhoneNo</label>
+                        <input type="text" class="form-control" placeholder="91 xxxxxxxxxx" id="exampleInputEmail1" value={phonenumber} onChange={handleChange("phonenumber")} aria-describedby="emailHelp" />
                     </div>
                     <div class="mb-3 mx-auto w-75">
                         <label for="exampleInputPassword1" class="form-label">Password</label>

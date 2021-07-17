@@ -23,7 +23,8 @@
   margin-right: 18px;
   background-color: rgb(80, 80, 255);
   border: none;
-  /* border-radius: 10px; */
+  border-radius: 4px;
+  padding: 5px;
   height: 30px;
   color: white;
   font-size: 14px;
@@ -45,8 +46,4 @@
 .row1 {
   font-weight: 400;
   height: 35px;
-}
-
-.table tr:nth-of-type(odd) {
-  background-color: lightgray;
 }
