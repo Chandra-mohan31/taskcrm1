@@ -17,7 +17,7 @@
 }
 
 .seg1 {
-  border-bottom: 2px solid rgb(180, 180, 180);
+  /* border-bottom: 2px solid rgb(180, 180, 180); */
 }
 
 .formTop {
@@ -26,4 +26,20 @@
 
 .btnn {
   margin-top: 24px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 576px) {
+  .form1 {
+    width: 100%;
+  }
+
+  .seg1 {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .bttn {
+    margin-bottom: 15px;
+  }
 }

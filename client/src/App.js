@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import './App.css';
+
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";

@@ -31,3 +31,11 @@
   height: 10px;
   width: 10px;
 }
+
+.activeLink {
+  background-color: lightblue;
+  transform: scale(0.9);
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 10px;
+}

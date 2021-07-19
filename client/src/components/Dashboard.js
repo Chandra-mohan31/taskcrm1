@@ -40,9 +40,9 @@ function Dashboard() {
 
     
     const token = authdata.access_token;
-    console.log(token);
+    
     let user = authdata.email;
-    console.log(user);
+   
     const [open,setOpen] = useState(false);
     const [text,setText] = useState("");
     const toggleSidebar = () => {
@@ -57,7 +57,7 @@ function Dashboard() {
                       
                        <div className="d-flex flex-row align-items-center">
                        <span className="navbar-toggler-icon" onClick={toggleSidebar}><MenuIcon /></span>
-            <img src={logo} className="img-fluid image p-2" alt="" />
+            
           {/* <h1 className="text-primary p-2">Argon</h1> */}
             </div>
                        <div className="d-flex flex-row align-items-center justify-content-end ">

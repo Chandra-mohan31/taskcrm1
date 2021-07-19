@@ -18,7 +18,7 @@ function Login() {
     const [values,setValues] = useState({
         phonenumber:"",
         password:"",
-        error:"",
+        error,
         loading:false,
         didRedirect:false
         
@@ -31,34 +31,46 @@ function Login() {
     const authdata = isAuthenticated();
     
 
-    
+    const errorMessage = () => {
+        console.log(error);
+        console.log(values);
+        return(
+            <div className="row"><div className="col-md-6 offset-sm-3 text-left">
+            <div className="alert alert-danger" style={{display:error ? "" : "none"}}>
+            {error}
+        </div>
+            </div></div>
+        
+        )
+    }
 
     let user = authdata.email;
-    console.log(user);
+    
 
     const handleChange = name => event =>{
         setValues({
-            ...values,error:false,[name]:event.target.value
+            ...values,[name]:event.target.value
         })
     }
 
     const onSubmit = (e) => {
+        
         e.preventDefault();
         setValues({
             ...values,error:false,loading: true
         });
-        console.log(values);
+       
 
         signin({
             phonenumber,
             password
         })
        
-        // .then(res => console.log(res))
+       
         .then(data => {
-            if(data.error){
+            if(data.message){
                 setValues({
-                    ...values,error: data.error,loading:false
+                    ...values,error: data.message,loading:false
                 })
             }else{
                 authenticate(data,()=>{
@@ -71,8 +83,12 @@ function Login() {
                
             }
         })
-        .catch((err)=> console.log("error in signin"))
-        console.log(user);
+        .catch((err)=>  setValues({
+            ...values,error: "error in login",loading:false
+        }))
+
+        // console.log(values);
+        
         
     }
 
@@ -149,6 +165,7 @@ function Login() {
                     {
                         performRedirect()
                     }
+                    {error ? errorMessage() : console.log()}
                 </form>
                     <div className="d-flex flex-row align-items-center justify-content-center">
                     <a className="text-white p-3" href="#" style={{textDecoration:"none"}}>Forget password?</a>
@@ -157,6 +174,7 @@ function Login() {
                     </div>
 
                 </div> 
+               
                 <div className="footer d-none text-white-50 d-sm-flex flex-row align-items-center justify-content-between mx-5 mt-5">
                     <div>2021 @jordan</div>
                     <div className="footer_right d-flex flex-row align-items-center justify-content-evenly" >

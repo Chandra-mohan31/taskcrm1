@@ -27,7 +27,9 @@ export const signin = (user) => {
 
     })
     .then(response => {
+        
         return response.json();
+
     })
     .catch(err => console.log(err))
 }
@@ -74,7 +76,7 @@ export const signout = (next,token) => {
 
 
 export const isAuthenticated = () => {
-    if (typeof window == "undefined") {
+    if (typeof window === "undefined") {
       return false;
     }
     if (localStorage.getItem("jwt")) {
@@ -85,13 +87,12 @@ export const isAuthenticated = () => {
   };
 
 
-  export const getEmployeeData = (token) => {
+  export const getEmployeeData = () => {
     return  fetch(`${API}crm/getEmployeeData`,{
         method:"GET",
         headers:{
             Accept:"application/json",
-            "Content-Type":"application/json",
-            Authorization:`Bearer ${token}`
+            "Content-Type":"application/json"
         }
 
     })
@@ -99,6 +100,25 @@ export const isAuthenticated = () => {
         
         return response.json();
         
+    })
+    .catch(err => console.log(err))
+}
+
+
+
+export const addEmpData = (empdata,token) => {
+    return  fetch(`${API}crm/addEmployee`,{
+        method:"POST",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(empdata)
+
+    })
+    .then(response => {
+        return response.json();
     })
     .catch(err => console.log(err))
 }
